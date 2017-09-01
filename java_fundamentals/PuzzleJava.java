@@ -42,18 +42,21 @@ public class PuzzleJava{
 		// was looking for a loop, which you can do, and it seems like a good way to learn about
 		// char as a data type, but this *is* simpler.
 		String letters = "abcdefghijklmnopqrstuvwxyz";
+		// Also via Stack O: https://stackoverflow.com/questions/7347856/how-to-convert-a-string-into-an-arraylist
 		ArrayList<String> alphabet = new ArrayList<String>(Arrays.asList(letters.split("")));
 		char[] shuffle;
 		shuffle = new char[26];
 		for (int i=0; i<26; i++){
 			int random = ThreadLocalRandom.current().nextInt(0,  alphabet.size());
-			//also via Stack O: https://stackoverflow.com/questions/7853502/how-to-convert-parse-from-string-to-char-in-java
+			//more from Stack O: https://stackoverflow.com/questions/7853502/how-to-convert-parse-from-string-to-char-in-java
 			shuffle[i] = alphabet.get(random).charAt(0);
 			alphabet.remove(random);
 		}
 		String vowels = "aeiouy";
 		String msg1 = "";
 		String msg2 = "";
+		//even more SO cribbing: https://stackoverflow.com/questions/506105/how-can-i-check-if-a-single-character-appears-in-a-string
+		//leaving all these SO links here as a memento googli, I guess
 		if (vowels.indexOf(shuffle[0]) != -1){
 			msg1 = " ...and it's a vowel!";
 		}
