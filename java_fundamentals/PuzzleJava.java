@@ -19,10 +19,14 @@ public class PuzzleJava{
 		ArrayList<String> shuffle = new ArrayList<String>();
 		System.out.println(arr);
 		int size = arr.size();
-		// so why didn't the loop below function correctly when written as:
+		// Q: why didn't the loop below function correctly when written as:
 		// for(int i=0; i<arr.size(); i++)
 		// ??
-		//
+		// A: Because the size of the array decreased with every iteration.
+		// arr.size() is a *function*, and its return value changes
+		// with every iteration of the loop -- while i, our incrementer, is increasing at the same
+		// time! So when i=2 and arr.size() -> 2, the loop stops,
+		// leaving us with two orphan elements in arr!
 		for(int i=0; i<size; i++){
 			int randomNum = ThreadLocalRandom.current().nextInt(0,  arr.size());
 			shuffle.add(arr.get(randomNum));
@@ -31,6 +35,34 @@ public class PuzzleJava{
 		System.out.println(shuffle);
 		System.out.println(arr);
 		return results;
+	}
+
+	char[] alphabet(){
+		// line below is via Stack O: https://stackoverflow.com/questions/17575840/better-way-to-generate-array-of-all-letters-in-the-alphabet
+		// was looking for a loop, which you can do, and it seems like a good way to learn about
+		// char as a data type, but this *is* simpler.
+		String letters = "abcdefghijklmnopqrstuvwxyz";
+		ArrayList<String> alphabet = new ArrayList<String>(Arrays.asList(letters.split("")));
+		char[] shuffle;
+		shuffle = new char[26];
+		for (int i=0; i<26; i++){
+			int random = ThreadLocalRandom.current().nextInt(0,  alphabet.size());
+			//also via Stack O: https://stackoverflow.com/questions/7853502/how-to-convert-parse-from-string-to-char-in-java
+			shuffle[i] = alphabet.get(random).charAt(0);
+			alphabet.remove(random);
+		}
+		String vowels = "aeiouy";
+		String msg1 = "";
+		String msg2 = "";
+		if (vowels.indexOf(shuffle[0]) != -1){
+			msg1 = " ...and it's a vowel!";
+		}
+		if (vowels.indexOf(shuffle[25]) != -1){
+			msg2 = " ...and it's a vowel!";	
+		}
+		System.out.println("First letter of array: " + shuffle[0] + msg1);
+		System.out.println("Last letter of array: " + shuffle[25] + msg2);
+		return shuffle;
 	}
 
 }

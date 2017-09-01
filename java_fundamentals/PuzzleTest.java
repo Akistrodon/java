@@ -14,8 +14,8 @@ public class PuzzleTest{
 		 arr2.add("Fujibayashi");
 		 arr2.add("Momochi");
 		 arr2.add("Ishikawa");
-		ArrayList<String> puzb = puzzle.puzB(arr2);
+		//ArrayList<String> puzb = puzzle.puzB(arr2);
+		char[] alph = puzzle.alphabet();
 
-		//System.out.println(puzb);
 	} 
 }
