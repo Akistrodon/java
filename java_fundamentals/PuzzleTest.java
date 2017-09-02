@@ -16,6 +16,13 @@ public class PuzzleTest{
 		 arr2.add("Ishikawa");
 		//ArrayList<String> puzb = puzzle.puzB(arr2);
 		char[] alph = puzzle.alphabet();
+		int[] r10 = puzzle.random10();
+		int[] r10sort = puzzle.random10Sorted();
+		String rstr = puzzle.randomString();
+		String[] rstrarr = puzzle.randomStringArray();
+
+		System.out.println(rstr);
+		System.out.println(Arrays.toString(rstrarr));
 
 	} 
 }

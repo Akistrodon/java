@@ -68,4 +68,54 @@ public class PuzzleJava{
 		return shuffle;
 	}
 
+	int[] random10(){
+		int[] randArr;
+		randArr = new int[10];
+		for(int i=0; i<10; i++){
+			int random = ThreadLocalRandom.current().nextInt(55,  100);
+			randArr[i] = random;
+		}
+		return randArr;
+	}
+
+	int[] random10Sorted(){
+		int[] sortArr = random10();
+		int temp;
+		// Bubble sort because that's the only sorting algo I know right now
+		for(int i=0; i<sortArr.length - 1; i++){
+			for(int k=0;k<sortArr.length-1;k++){
+				if(sortArr[i] > sortArr[i+1]){
+					temp = sortArr[i + 1];
+					sortArr[i+1] = sortArr[i];
+					sortArr[i] = temp;
+				}
+			}
+		}
+		System.out.println(Arrays.toString(sortArr));
+		System.out.println("Min: " + sortArr[0]);
+		System.out.println("Max: " + sortArr[9]);
+		return sortArr;
+
+	}
+
+	String randomString(){
+		String letters = "abcdefghijklmnopqrstuvwxyz";
+		char[] randChars;
+		randChars = new char[5];
+		for(int i=0; i<5; i++){
+			int random = ThreadLocalRandom.current().nextInt(0,  26);
+			randChars[i] = letters.charAt(random);
+		}
+		String randStr = new String(randChars);
+		return randStr;
+	}
+
+	String[] randomStringArray(){
+		String[] randStrs;
+		randStrs = new String[10];
+		for(int i=0;i<10; i++){
+			randStrs[i] = randomString();
+		}
+		return randStrs;
+	}
 }
