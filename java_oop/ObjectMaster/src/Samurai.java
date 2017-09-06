@@ -11,9 +11,12 @@ public class Samurai extends Human {
 	
 	public void deathBlow(Human target) {
 		System.out.println(this.name + " dealt a death blow to " + target.name);
+		this.health -= (this.health / 2);
+		target.health = 0;
 	}
 
 	public void meditate() {
+		System.out.println(this.name + " is meditating...");
 		this.health += (this.health / 2);
 	}
 	

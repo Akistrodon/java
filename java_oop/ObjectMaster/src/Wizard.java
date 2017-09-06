@@ -14,7 +14,7 @@ public class Wizard extends Human {
 	
 	public void fireball(Human target) {
 		System.out.println(this.name + " used fireball on " + target.name);
-		
+		target.health -= (this.intelligence * 3);
 	}
 	
 }

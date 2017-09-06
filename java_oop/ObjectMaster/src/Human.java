@@ -32,4 +32,5 @@ public class Human {
 		System.out.println(this.name + " health: " + this.health);
 	}
 	
+	
 }
