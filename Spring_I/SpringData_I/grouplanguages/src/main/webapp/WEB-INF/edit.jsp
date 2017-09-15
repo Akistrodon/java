@@ -13,6 +13,8 @@
 <a href="/">Dashboard</a>
 <form:form action="/languages/edit/${id}" method="POST" modelAttribute="language">
 
+<form:hidden path="id"/>
+
 <form:label path="name">Name
 <form:errors path="name"/>
 <form:input path="name"/>

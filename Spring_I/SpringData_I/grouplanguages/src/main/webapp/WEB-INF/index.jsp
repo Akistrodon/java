@@ -6,7 +6,28 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Langauges</title>
+<title>Languages</title>
+<style>
+
+	body{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 100px;
+	}
+
+	form{
+		display: flex;
+		flex-direction: column;
+		width: 200px;
+		margin-top: 10px;
+	}
+	
+	input[type="submit"]{
+		width: 100px;
+		margin-top: 10px;
+	}
+</style>
 </head>
 <body>
 
@@ -20,11 +41,11 @@
 </tr>
 <c:forEach items="${languages}" var="lang" varStatus="loop">
 <tr>
-<td><a href="/languages/<c:out value="${loop.index}"/>"><c:out value="${lang.name}"/></a></td>
+<td><a href="/languages/<c:out value="${loop.index + 1}"/>"><c:out value="${lang.name}"/></a></td>
 <td><c:out value="${lang.creator}"/></td>
 <td><c:out value="${lang.version}"/></td>
-<td><a href="/languages/delete/${loop.index}">delete</a></td> 
-<td><a href="/languages/edit/${loop.index}">edit</a></td>
+<td><a href="/languages/delete/${loop.index + 1}">delete</a></td> 
+<td><a href="/languages/edit/${loop.index + 1}">edit</a></td>
 </tr>
 </c:forEach>
 </table>
