@@ -17,7 +17,7 @@
 <tr><td><c:out value="${language.version}"/></td></tr>
 </table>
 
-<a href="/langauges/edit/${id}">Edit</a>
+<a href="/languages/edit/${id}">Edit</a>
 <a href="/languages/delete/${id}">Delete</a>
 </body>
 </html>
